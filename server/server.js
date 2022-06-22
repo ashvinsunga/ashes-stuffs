@@ -1,0 +1,37 @@
+// to use import statement, you must add to your package.json, "type":"module"
+//And add ".js" extension on every files to import. Files to be import needs to use
+// "export default" instead "module.exports"
+
+import express from 'express';
+import dotenv from 'dotenv';
+import products from './data/products.js';
+import connectDB from './config/db.js';
+import colors from 'colors';
+
+dotenv.config();
+
+connectDB();
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('API is running!');
+});
+
+app.get('/api/products', (req, res) => {
+  res.json(products);
+});
+
+app.get('/api/products/:id', (req, res) => {
+  const product = products.find((p) => p._id === req.params.id);
+  res.json(product);
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} on port ${PORT}`.bgBlue.bold
+  )
+);
