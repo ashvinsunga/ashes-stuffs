@@ -13,7 +13,7 @@ import {
 import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { listProductDetails } from '../action/productActions';
+import { listProductDetails } from '../actions/productActions';
 
 // access the path params from ProductScreen Route
 const ProductScreen = () => {
