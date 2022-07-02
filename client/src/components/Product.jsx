@@ -17,11 +17,7 @@ const Product = ({ product }) => {
       </div>
       <h3 className='tw-mt-4 tw-text-sm tw-text-gray-700'>{product.name}</h3>
       <div>
-        <Rating
-          value={product.rating}
-          text={`${product.numReviews} reviews`}
-          color='teal'
-        />
+        <Rating value={product.rating} text={`${product.numReviews} reviews`} />
       </div>
       <p className='tw-mt-1 tw-text-lg tw-font-medium tw-text-gray-900'>
         ₱{product.price}

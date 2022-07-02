@@ -14,18 +14,19 @@ const SearchBox = ({ navigate }) => {
   };
 
   return (
-    <Form onSubmit={submitHandler} className='tw-grid tw-grid-cols-2'>
+    <Form
+      onSubmit={submitHandler}
+      className='tw-grid tw-grid-cols-2 tw-mt-2 tw-justify-items-start'>
       <Form.Control
         type='text'
         name='q'
         onChange={(e) => setKeyword(e.target.value)}
         placeholder='Search Products...'
-        className='ms-sm-2 ml-sm-5'></Form.Control>
+        className='ms-sm-2 ml-sm-5 tw-h-12'></Form.Control>
       <Button
         type='submit'
-        variant='outline-success'
-        className='tw-w-40 tw-ml-4'>
-        Search
+        className='tw-w-28 tw-h-12 tw-ml-4 tw-rounded-md tw-bg-green-600 hover:tw-bg-green-500'>
+        <strong>GO</strong>
       </Button>
     </Form>
   );

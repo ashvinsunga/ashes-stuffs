@@ -23,7 +23,9 @@ const App = () => {
   return (
     <>
       <Header />
+
       <main className='py-4'>
+        <div className='tw-mb-28' />
         <Container>
           <Routes>
             <Route path='/order/:id' element={<OrderScreen />} />

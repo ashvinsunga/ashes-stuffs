@@ -27,7 +27,9 @@ export const HomeScreen = () => {
     <>
       <Meta />
       {!keyword ? (
-        <ProductCarousel />
+        <div className='-tw-mt-7'>
+          <ProductCarousel />
+        </div>
       ) : (
         <Link to='/' className='btn btn-dark'>
           {' '}

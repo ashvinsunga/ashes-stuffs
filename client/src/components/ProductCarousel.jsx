@@ -30,20 +30,6 @@ const ProductCarousel = () => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
-    // <Carousel pause='hover' className='bg-dark'>
-    //   {products.map((product) => (
-    //     <Carousel.Item key={product._id}>
-    //       <Link to={`/product/${product._id}`}>
-    //         <Image src={product.image} alt={product.name} fluid />
-    //         <Carousel.Caption className='carousel-caption'>
-    //           <h2>
-    //             {product.name} (₱{product.price})
-    //           </h2>
-    //         </Carousel.Caption>
-    //       </Link>
-    //     </Carousel.Item>
-    //   ))}
-    // </Carousel>
     <Swiper
       pagination={pagination}
       effect={'fade'}
@@ -64,7 +50,7 @@ const ProductCarousel = () => {
             <div>
               <Link to={`/product/${product._id}`}>
                 <img
-                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75'
+                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 sm:-tw-ml-1'
                   src={product.image}
                   alt={product.name}
                 />
