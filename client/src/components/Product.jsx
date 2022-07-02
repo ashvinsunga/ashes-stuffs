@@ -1,32 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+
 import Rating from './Rating';
 
 const Product = ({ product }) => {
   return (
-    <Card className='my-3 p-3 rounded'>
-      <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant='top' />
-      </Link>
-
-      <Card.Body>
-        <Link to={`/product/${product._id}`}>
-          <Card.Title as='div'>
-            <strong>{product.name}</strong>
-          </Card.Title>
-        </Link>
-
-        <Card.Text as='div'>
-          <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
-            color='teal'
-          />
-        </Card.Text>
-        <Card.Text as='h3'>₱{product.price}</Card.Text>
-      </Card.Body>
-    </Card>
+    <a
+      key={product.id}
+      href={`/product/${product._id}`}
+      className='tw-border-2 hover:tw-border-teal-600 tw-p-3'>
+      <div className='tw-w-full tw-aspect-w-1 tw-aspect-h-1 tw-bg-gray-200 tw-rounded-lg tw-overflow-hidden xl:tw-aspect-w-7 xl:tw-aspect-h-8'>
+        <img
+          src={product.image}
+          alt={product.title}
+          className='tw-w-full tw-h-full tw-object-center tw-object-cover'
+        />
+      </div>
+      <h3 className='tw-mt-4 tw-text-sm tw-text-gray-700'>{product.name}</h3>
+      <div>
+        <Rating
+          value={product.rating}
+          text={`${product.numReviews} reviews`}
+          color='teal'
+        />
+      </div>
+      <p className='tw-mt-1 tw-text-lg tw-font-medium tw-text-gray-900'>
+        ₱{product.price}
+      </p>
+    </a>
   );
 };
 

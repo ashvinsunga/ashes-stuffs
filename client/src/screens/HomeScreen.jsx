@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
 
 import { listProducts } from '../actions/productActions';
@@ -25,21 +25,29 @@ export const HomeScreen = () => {
 
   return (
     <>
-      {!keyword && <ProductCarousel />}
-      <h1>Latest Products</h1>
+      <Meta />
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to='/' className='btn btn-dark'>
+          {' '}
+          Go back{' '}
+        </Link>
+      )}
+      <h1 className='tw-text-2xl tw-font-extrabold tw-tracking-tight tw-text-gray-900 tw-m-8'>
+        CHECK OUR STUFFS
+      </h1>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-          <Row>
+          <div className='tw-grid tw-grid-cols-4 tw-gap-y-10 tw-gap-x-4 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5'>
             {products.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4}>
-                <Product product={product} />
-              </Col>
+              <Product key={product._id} product={product} />
             ))}
-          </Row>
+          </div>
           <Paginate
             page={page}
             pages={pages}
