@@ -38,8 +38,8 @@ const ProductCarousel = () => {
         delay: 4000,
         disableOnInteraction: false,
       }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
       modules={[Autoplay, EffectFade, Pagination]}>
       {products.map((product) => (
         <SwiperSlide key={product._id}>
@@ -50,7 +50,7 @@ const ProductCarousel = () => {
             <div>
               <Link to={`/product/${product._id}`}>
                 <img
-                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 sm:-tw-ml-1'
+                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 tw-justify-self-center'
                   src={product.image}
                   alt={product.name}
                 />

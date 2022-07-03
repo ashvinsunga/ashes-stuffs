@@ -4,8 +4,8 @@ import { Alert } from 'react-bootstrap';
 const Message = ({ variant, children }) => {
   return (
     <Alert
-      variant={variant}
-      className='tw-rounded-3xl tw-text-center tw-max-w-max'>
+      className='tw-rounded-xl tw-max-w-fit tw-text-sm tw-py-1'
+      variant={variant}>
       {children}
     </Alert>
   );

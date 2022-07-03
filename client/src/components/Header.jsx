@@ -45,9 +45,9 @@ const Header = () => {
             <Nav
               className={`tw-grid ${
                 userInfo && userInfo.isAdmin
-                  ? 'tw-grid-cols-3'
-                  : 'tw-grid-cols-2'
-              } sm:tw-justify-items-center sm:-tw-ml-4 sm:tw-mx-5 sm:tw-mt-6`}>
+                  ? 'tw-grid-cols-3 '
+                  : 'tw-grid-cols-2 '
+              }sm:tw-justify-items-center sm:-tw-ml-4 sm:tw-mx-5 sm:tw-mt-6 tw-justify-between`}>
               <Link
                 to='/cart'
                 className='tw-px-4 tw-py-1 tw-text-lg tw-font-bold tw-rounded-full hover:tw-border tw-text-white tw-text-center hover:tw-text-white'>
@@ -129,7 +129,7 @@ const Header = () => {
               {userInfo && userInfo.isAdmin && (
                 <Menu
                   as='div'
-                  className='tw-relative tw-inline-block tw-text-left tw-z-10 tw-ml-3'>
+                  className='tw-relative tw-inline-block tw-text-left tw-z-10 tw-ml-10'>
                   <div>
                     <Menu.Button className='tw-inline-flex tw-justify-center tw-rounded-md tw-border tw-border-gray-300 tw-shadow-sm tw-px-4 tw-py-2 tw-bg-white tw-text-sm tw-font-medium tw-text-gray-700 hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-offset-gray-100 focus:tw-ring-indigo-500'>
                       <strong>ADMIN</strong>
