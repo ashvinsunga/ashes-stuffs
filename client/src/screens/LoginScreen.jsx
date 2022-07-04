@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import FormContainer from '../components/FormContainer';
 import { login } from '../actions/userActions.js';
 
 const LoginScreen = () => {
@@ -36,7 +35,7 @@ const LoginScreen = () => {
         <p className='tw-text-center tw-text-2xl tw-font-extrabold tw-mx-4 tw-mb-6'>
           Welcome to Ashes Stuffs! Please sign in.
         </p>
-        <div className=''>
+        <div className='tw-grid tw-grid-cols-1 tw-justify-items-center'>
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
         </div>
