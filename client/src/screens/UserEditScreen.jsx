@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 import { getUserDetails, updateUser } from '../actions/userActions';
 import { USER_UPDATE_RESET } from '../constants/userConstants';
+import AppButton from '../components/AppButton';
 
 const UserEditScreen = () => {
   const navigate = useNavigate();
@@ -51,8 +52,8 @@ const UserEditScreen = () => {
 
   return (
     <>
-      <Link to='/admin/userlist' className='btn btn-light my-3'>
-        Go Back
+      <Link to='/admin/userlist'>
+        <AppButton>Go Back</AppButton>
       </Link>
       <FormContainer>
         <h1>Edit User</h1>
@@ -90,9 +91,7 @@ const UserEditScreen = () => {
                 onChange={(e) => setIsAdmin(e.target.checked)}></Form.Check>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
-              Update
-            </Button>
+            <AppButton type='submit'>Update</AppButton>
           </Form>
         )}
       </FormContainer>

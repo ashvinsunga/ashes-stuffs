@@ -35,7 +35,7 @@ const UserListScreen = () => {
 
   return (
     <>
-      <h1 className='tw-mb-6 tw-font-extrabold'>Users</h1>
+      <h1 className='tw-mb-4 tw-font-extrabold'>Users</h1>
       {loading ? (
         <Loader />
       ) : error ? (

@@ -230,13 +230,10 @@ const OrderScreen = () => {
                 userInfo.isAdmin &&
                 order.isPaid &&
                 !order.isDelivered && (
-                  <ListGroup.Item>
-                    <Button
-                      type='button'
-                      className='btn btn-block'
-                      onClick={deliverHandler}>
+                  <ListGroup.Item className='tw-text-center'>
+                    <AppButton onClick={deliverHandler}>
                       Mark As Delivered
-                    </Button>
+                    </AppButton>
                   </ListGroup.Item>
                 )}
             </ListGroup>

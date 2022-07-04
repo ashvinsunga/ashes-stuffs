@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import ListButton from '../components/ListButton';
 import { useDispatch, useSelector } from 'react-redux';
+import AppButton from '../components/AppButton';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
@@ -79,11 +80,11 @@ const ProductListScreen = () => {
         <Col>
           <h1>Products</h1>
         </Col>
-        <Col className='text-right'>
-          <Button className='my-3' onClick={createProductHandler}>
+        <div className='tw-mt-6'>
+          <AppButton className='tw-w-4' onClick={createProductHandler}>
             <i className='fas fa-plus'></i> Create Product
-          </Button>
-        </Col>
+          </AppButton>
+        </div>
       </Row>
       {loadingDelete && <Loader />}
       {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
@@ -96,7 +97,7 @@ const ProductListScreen = () => {
       ) : (
         <>
           <table className='tw-min-w-full'>
-            <thead className='tw-border-b tw-bg-gray-200 tw-text-center'>
+            <thead className='tw-border-b tw-bg-gray-200'>
               <tr>
                 <th
                   scope='col'
@@ -142,10 +143,10 @@ const ProductListScreen = () => {
                   <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                     ₱ {product.price}
                   </td>
-                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                  <td className='tw-px-6  tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                     {product.category}
                   </td>
-                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                  <td className='tw-px-6  tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                     {product.brand}
                   </td>
                   <td className='tw-my-2 tw-grid tw-grid-cols-2 sm:tw-grid-cols-1'>

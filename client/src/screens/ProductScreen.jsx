@@ -10,6 +10,7 @@ import {
   Button,
   Form,
 } from 'react-bootstrap';
+import AppButton from '../components/AppButton';
 import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -72,8 +73,8 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className='btn btn-dark my-3' to='/'>
-        Go Back
+      <Link to='/'>
+        <AppButton>Go Back</AppButton>
       </Link>
 
       {loading ? (
@@ -148,14 +149,13 @@ const ProductScreen = () => {
                     </ListGroup.Item>
                   )}
 
-                  <ListGroup.Item>
-                    <Button
+                  <ListGroup.Item className='tw-text-center'>
+                    <AppButton
                       onClick={addToCartHandler}
-                      className='btn-block'
                       type='button'
                       disabled={product.countInStock === 0}>
                       Add To Cart
-                    </Button>
+                    </AppButton>
                   </ListGroup.Item>
                 </ListGroup>
               </Card>

@@ -10,6 +10,7 @@ import {
   Button,
   Card,
 } from 'react-bootstrap';
+import AppButton from '../components/AppButton';
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
@@ -100,14 +101,12 @@ const CartScreen = () => {
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
-            <ListGroup.Item>
-              <Button
-                type='button'
-                className='btn-block'
+            <ListGroup.Item className='tw-text-center'>
+              <AppButton
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}>
                 Proceed To Checkout
-              </Button>
+              </AppButton>
             </ListGroup.Item>
           </ListGroup>
         </Card>
