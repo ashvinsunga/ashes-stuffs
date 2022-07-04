@@ -4,6 +4,7 @@ import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import AppButton from '../components/AppButton';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import {
@@ -106,6 +107,12 @@ const OrderScreen = () => {
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
+      <div className='tw-mb-5'>
+        <Link to='/admin/orderlist'>
+          <AppButton>Go back</AppButton>
+        </Link>
+      </div>
+
       <h1>Order {order._id}</h1>
       <Row>
         <Col md={8}>
