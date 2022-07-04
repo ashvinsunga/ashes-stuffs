@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Table, Form, Button, Row, Col } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import ListButton from '../components/ListButton';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -58,7 +58,7 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h2 className='tw-pb-6 tw-font-extrabold'>User Profile</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {}
         {success && <Message variant='success'>Profile Updated</Message>}
@@ -113,54 +113,124 @@ const ProfileScreen = () => {
         )}
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <h2 className='tw-pb-6 tw-font-extrabold'>My Orders</h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
           <Message variant='danger'>{errorOrders}</Message>
         ) : (
-          <Table striped bordered hover responsive className='table-sm'>
-            <thead>
+          <table className='tw-min-w-full'>
+            <thead className='tw-border-b tw-bg-gray-200 tw-text-center'>
               <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th></th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  ID
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  DATE
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  TOTAL
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  PAID
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  DELIVERED
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-medium tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'></th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
-                  <td>{order.totalPrice}</td>
-                  <td>
+                <tr
+                  className='tw-border-b tw-transition tw-duration-150 tw-ease-in-out hover:tw-bg-lime-200'
+                  key={order._id}>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {order._id}
+                  </td>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {order.createdAt.substring(0, 10)}
+                  </td>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    ₱ {order.totalPrice}
+                  </td>
+                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
                     ) : (
                       <i className='fas fa-times' style={{ color: 'red' }}></i>
                     )}
                   </td>
-                  <td>
+                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                     {order.isDelivered ? (
                       order.deliveredAt.substring(0, 10)
                     ) : (
                       <i className='fas fa-times' style={{ color: 'red' }}></i>
                     )}
                   </td>
-                  <td>
-                    <LinkContainer to={`/order/${order._id}`}>
-                      <Button className='btn-sm' variant='light'>
-                        Details
-                      </Button>
-                    </LinkContainer>
+                  <td className='tw-px-3 tw-my-2 tw-justify-items-center'>
+                    <Link to={`/order/${order._id}`}>
+                      <ListButton>Details</ListButton>
+                    </Link>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </Table>
+          </table>
+          // <Table striped bordered hover responsive className='table-sm'>
+          //   <thead>
+          //     <tr>
+          //       <th>ID</th>
+          //       <th>DATE</th>
+          //       <th>TOTAL</th>
+          //       <th>PAID</th>
+          //       <th>DELIVERED</th>
+          //       <th></th>
+          //     </tr>
+          //   </thead>
+          //   <tbody>
+          //     {orders.map((order) => (
+          //       <tr key={order._id}>
+          //         <td>{order._id}</td>
+          //         <td>{order.createdAt.substring(0, 10)}</td>
+          //         <td>{order.totalPrice}</td>
+          //         <td>
+          //           {order.isPaid ? (
+          //             order.paidAt.substring(0, 10)
+          //           ) : (
+          //             <i className='fas fa-times' style={{ color: 'red' }}></i>
+          //           )}
+          //         </td>
+          //         <td>
+          //           {order.isDelivered ? (
+          //             order.deliveredAt.substring(0, 10)
+          //           ) : (
+          //             <i className='fas fa-times' style={{ color: 'red' }}></i>
+          //           )}
+          //         </td>
+          //         <td>
+          //           <LinkContainer to={`/order/${order._id}`}>
+          //             <Button className='btn-sm' variant='light'>
+          //               Details
+          //             </Button>
+          //           </LinkContainer>
+          //         </td>
+          //       </tr>
+          //     ))}
+          //   </tbody>
+          // </Table>
         )}
       </Col>
     </Row>

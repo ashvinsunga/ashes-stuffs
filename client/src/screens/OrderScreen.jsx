@@ -107,27 +107,22 @@ const OrderScreen = () => {
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
-      <div className='tw-mb-5'>
-        <Link to='/admin/orderlist'>
-          <AppButton>Go back</AppButton>
-        </Link>
-      </div>
-
-      <h1>Order {order._id}</h1>
+      <h1 className='tw-font-extrabold tw-pb-4'>Order {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2 className='tw-underline tw-pb-2'>Shipping</h2>
               <p>
-                <strong>Name: </strong> {order.user.name}
+                <span className='tw-text-gray-500'>Name:</span>{' '}
+                {order.user.name}
               </p>
               <p>
-                <strong>Email: </strong>{' '}
+                <span className='tw-text-gray-500'>Email: </span>{' '}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
-              <p>
-                <strong>Address:</strong>
+              <p className='tw-pb-2'>
+                <span className='tw-text-gray-500'>Address:</span>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
@@ -142,9 +137,9 @@ const OrderScreen = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <p>
-                <strong>Method: </strong>
+              <h2 className='tw-underline tw-pb-2'>Payment Method</h2>
+              <p className='tw-pb-2'>
+                <span className='tw-text-gray-500'>Method: </span>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
@@ -155,7 +150,7 @@ const OrderScreen = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2 className='tw-underline tw-pb-2'>Order Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
@@ -188,9 +183,9 @@ const OrderScreen = () => {
           </ListGroup>
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className='tw-border-teal-600'>
             <ListGroup variant='flush'>
-              <ListGroup.Item>
+              <ListGroup.Item className='tw-text-center tw-font-extrabold'>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -218,7 +213,7 @@ const OrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
-                <ListGroup.Item>
+                <ListGroup.Item className='tw-z-0'>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />
