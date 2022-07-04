@@ -91,7 +91,7 @@ const OrderListScreen = () => {
                         <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
                           ₱ {order.totalPrice}
                         </td>
-                        <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                        <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-center tw-text-sm tw-font-medium tw-text-gray-900'>
                           {order.isPaid ? (
                             order.paidAt.substring(0, 10)
                           ) : (
@@ -100,7 +100,7 @@ const OrderListScreen = () => {
                               style={{ color: 'red' }}></i>
                           )}
                         </td>
-                        <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                        <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-center tw-text-sm tw-font-medium tw-text-gray-900'>
                           {order.isDelivered ? (
                             order.deliveredAt.substring(0, 10)
                           ) : (

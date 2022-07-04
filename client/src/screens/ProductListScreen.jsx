@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Table, Button, Row, Col } from 'react-bootstrap';
+import ListButton from '../components/ListButton';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -95,7 +95,75 @@ const ProductListScreen = () => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-          <Table striped bordered hover responsive className='table-sm'>
+          <table className='tw-min-w-full'>
+            <thead className='tw-border-b tw-bg-gray-200 tw-text-center'>
+              <tr>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  ID
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  NAME
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  PRICE
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  CATEGORY
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-extrabold tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'>
+                  BRAND
+                </th>
+                <th
+                  scope='col'
+                  className='tw-text-sm tw-font-medium tw-text-gray-900 tw-px-6 tw-py-4 tw-text-left'></th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr
+                  className='tw-border-b tw-transition tw-duration-150 tw-ease-in-out hover:tw-bg-lime-200'
+                  key={product._id}>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {product._id}
+                  </td>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {product.name}
+                  </td>
+                  <td className='tw-px-6 tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    ₱ {product.price}
+                  </td>
+                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {product.category}
+                  </td>
+                  <td className='tw-px-6 tw-text-center tw-py-4 tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-gray-900'>
+                    {product.brand}
+                  </td>
+                  <td className='tw-my-2 tw-grid tw-grid-cols-2 sm:tw-grid-cols-1'>
+                    <Link to={`/admin/product/${product._id}/edit`}>
+                      <ListButton>
+                        <i className='fas fa-edit'></i>
+                      </ListButton>
+                    </Link>
+
+                    <ListButton onClick={() => deleteHandler(product._id)}>
+                      <i className='fas fa-trash'></i>
+                    </ListButton>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* <Table striped bordered hover responsive className='table-sm'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -130,7 +198,7 @@ const ProductListScreen = () => {
                 </tr>
               ))}
             </tbody>
-          </Table>
+          </Table> */}
           <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
