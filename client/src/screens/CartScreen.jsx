@@ -44,7 +44,10 @@ const CartScreen = () => {
         <h1 className='tw-mb-3'>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Your cart is empty <Link to='/'>Go Back</Link>
+            Your cart is empty{' '}
+            <Link to='/' className='tw-underline'>
+              Go Back
+            </Link>
           </Message>
         ) : (
           <ListGroup variant='primary'>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import AppButton from '../components/AppButton';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import CheckoutSteps from '../components/CheckoutSteps';
@@ -26,55 +26,61 @@ const ShippingScreen = () => {
   };
 
   return (
-    <FormContainer>
+    <div className='tw-grid tw-grid-cols-1 tw-justify-items-center tw-text-lg'>
       <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='address'>
-          <Form.Label>Address</Form.Label>
-          <Form.Control
+      <h1 className='tw-mb-2 tw-font-extrabold'>Shipping</h1>
+      <form onSubmit={submitHandler}>
+        <div className='tw-text-left'>
+          <label className='tw-text-sm'>Address</label>
+          <br />
+          <input
             type='text'
             placeholder='Enter address'
             value={address}
             required
-            onChange={(e) => setAddress(e.target.value)}></Form.Control>
-        </Form.Group>
+            onChange={(e) => setAddress(e.target.value)}
+            className='tw-w-96 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+        </div>
 
-        <Form.Group controlId='city'>
-          <Form.Label>City</Form.Label>
-          <Form.Control
+        <div className='tw-text-left'>
+          <label className='tw-text-sm'>City</label>
+          <br />
+          <input
             type='text'
             placeholder='Enter city'
             value={city}
             required
-            onChange={(e) => setCity(e.target.value)}></Form.Control>
-        </Form.Group>
+            onChange={(e) => setCity(e.target.value)}
+            className='tw-w-96 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+        </div>
 
-        <Form.Group controlId='postalCode'>
-          <Form.Label>Postal Code</Form.Label>
-          <Form.Control
+        <div className='tw-text-left'>
+          <label className='tw-text-sm'>Postal Code</label>
+          <br />
+          <input
             type='text'
             placeholder='Enter postal code'
             value={postalCode}
             required
-            onChange={(e) => setPostalCode(e.target.value)}></Form.Control>
-        </Form.Group>
+            onChange={(e) => setPostalCode(e.target.value)}
+            className='tw-w-96 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+        </div>
 
-        <Form.Group controlId='country'>
-          <Form.Label>Country</Form.Label>
-          <Form.Control
+        <div className='tw-text-left'>
+          <label className='tw-text-sm'>Country</label>
+          <br />
+          <input
             type='text'
             placeholder='Enter country'
             value={country}
             required
-            onChange={(e) => setCountry(e.target.value)}></Form.Control>
-        </Form.Group>
+            onChange={(e) => setCountry(e.target.value)}
+            className='tw-w-96 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+        </div>
 
-        <Button type='submit' variant='primary'>
-          Continue
-        </Button>
-      </Form>
-    </FormContainer>
+        <AppButton type='submit'>Continue</AppButton>
+      </form>
+    </div>
   );
 };
 

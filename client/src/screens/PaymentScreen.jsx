@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import FormContainer from '../components/FormContainer';
+import AppButton from '../components/AppButton';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../actions/cartActions';
 
@@ -26,36 +25,50 @@ const PaymentScreen = () => {
   };
 
   return (
-    <FormContainer>
+    <div className='tw-grid tw-grid-cols-1 tw-justify-items-center tw-text-lg'>
       <CheckoutSteps step1 step2 step3 />
-      <h1>Payment Method</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group>
-          <Form.Label as='legend'>Select Method</Form.Label>
-          <Col>
-            <Form.Check
+      <h1 className='tw-mb-6 tw-font-extrabold'>Payment Method</h1>
+      <form onSubmit={submitHandler}>
+        <label className='tw-mb-2 tw-font-extrabold'>Select Method</label>
+
+        <div className='tw-mb-5'>
+          <div className='tw-form-check'>
+            <input
+              className='tw-form-check-input tw-h-4 tw-w-4 tw-mt-1 tw-mr-2 tw-cursor-pointer'
               type='radio'
-              label='PayPal or Credit Card'
-              id='PayPal'
               name='paymentMethod'
               value='PayPal'
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              id='PayPal'
               checked
-              onChange={(e) => setPaymentMethod(e.target.value)}></Form.Check>
-            <Form.Check
+            />
+            <label
+              className='tw-cursor-pointer tw-form-check-label tw-inline-block tw-text-gray-800'
+              for='PayPal'>
+              PayPal or Credit Card
+            </label>
+          </div>
+
+          <div className='tw-form-check'>
+            <input
+              className='tw-form-check-input tw-h-4 tw-w-4 tw-mt-1 tw-mr-2 tw-cursor-pointer'
               type='radio'
-              label='Stripe'
-              id='Stripe'
               name='paymentMethod'
               value='Stripe'
-              onChange={(e) => setPaymentMethod(e.target.value)}></Form.Check>
-          </Col>
-        </Form.Group>
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              id='Stripe'
+            />
+            <label
+              className='tw-cursor-pointer tw-form-check-label tw-inline-block tw-text-gray-800'
+              for='Stripe'>
+              Stripe
+            </label>
+          </div>
+        </div>
 
-        <Button type='submit' variant='primary'>
-          Continue
-        </Button>
-      </Form>
-    </FormContainer>
+        <AppButton type='submit'>Continue</AppButton>
+      </form>
+    </div>
   );
 };
 
