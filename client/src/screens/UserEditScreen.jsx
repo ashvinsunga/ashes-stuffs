@@ -55,8 +55,8 @@ const UserEditScreen = () => {
       <Link to='/admin/userlist'>
         <AppButton>Go Back</AppButton>
       </Link>
-      <FormContainer>
-        <h1>Edit User</h1>
+      <div className='tw-grid tw-grid-cols-1 tw-justify-items-center tw-text-lg'>
+        <h1 className='tw-mb-6 tw-font-extrabold'>Edit User</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
         {loading ? (
@@ -64,37 +64,38 @@ const UserEditScreen = () => {
         ) : error ? (
           <Message variant='danger'>{error}</Message>
         ) : (
-          <Form onSubmit={submitHandler}>
-            <Form.Group controlId='name'>
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type='name'
+          <form onSubmit={submitHandler}>
+            <div className='tw-text-left'>
+              <label>Name</label>
+              <br />
+              <input
+                type='text'
                 placeholder='Enter name'
                 value={name}
-                onChange={(e) => setName(e.target.value)}></Form.Control>
-            </Form.Group>
-
-            <Form.Group controlId='email'>
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
+                onChange={(e) => setName(e.target.value)}
+                className='tw-w-80 tw-mb-6 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
+            <div>
+              <label>Email Address</label>
+              <br />
+              <input
                 type='email'
                 placeholder='Enter email'
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}></Form.Control>
-            </Form.Group>
-
-            <Form.Group controlId='isadmin'>
-              <Form.Check
+                onChange={(e) => setEmail(e.target.value)}
+                className='tw-w-80 tw-mb-6 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
+            <div>
+              <label className='tw-mb-4 tw-mr-4'>Is Admin? </label>
+              <input
                 type='checkbox'
-                label='Is Admin'
                 checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}></Form.Check>
-            </Form.Group>
-
+                onChange={(e) => setIsAdmin(e.target.checked)}></input>
+            </div>
             <AppButton type='submit'>Update</AppButton>
-          </Form>
+          </form>
         )}
-      </FormContainer>
+      </div>
     </>
   );
 };

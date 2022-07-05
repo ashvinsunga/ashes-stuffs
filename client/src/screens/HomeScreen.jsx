@@ -7,8 +7,8 @@ import Loader from '../components/Loader';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
-
 import { listProducts } from '../actions/productActions';
+import AppButton from '../components/AppButton';
 
 export const HomeScreen = () => {
   const params = useParams();
@@ -31,9 +31,8 @@ export const HomeScreen = () => {
           <ProductCarousel />
         </div>
       ) : (
-        <Link to='/' className='btn btn-dark'>
-          {' '}
-          Go back{' '}
+        <Link to='/'>
+          <AppButton>Go back</AppButton>
         </Link>
       )}
       <h1 className='tw-text-2xl tw-font-extrabold tw-tracking-tight tw-text-gray-900 tw-m-8'>

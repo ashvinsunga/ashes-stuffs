@@ -97,10 +97,8 @@ const UserListScreen = () => {
                       <i className='fas fa-edit'></i>
                     </ListButton>
                   </Link>
-                  <ListButton>
-                    <i
-                      className='fas fa-trash'
-                      onClick={() => deleteHandler(user._id)}></i>
+                  <ListButton onClick={() => deleteHandler(user._id)}>
+                    <i className='fas fa-trash'></i>
                   </ListButton>
                 </td>
               </tr>
