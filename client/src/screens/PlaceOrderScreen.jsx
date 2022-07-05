@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import AppButton from '../components/AppButton';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -66,99 +67,102 @@ const PlaceOrderScreen = () => {
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Address:</strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
-                {cart.shippingAddress.postalCode},{' '}
-                {cart.shippingAddress.country}
-              </p>
-            </ListGroup.Item>
+          <div className='tw-flex tw-justify-center'>
+            <ul className='tw-bg-white tw-rounded-lg tw-w-96 tw-text-gray-900'>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
+                <h2>Shipping</h2>
+                <p>
+                  <strong>Address:</strong>
+                  {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
+                  {cart.shippingAddress.postalCode},{' '}
+                  {cart.shippingAddress.country}
+                </p>
+              </li>
 
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong>Method: </strong>
-              {cart.paymentMethod}
-            </ListGroup.Item>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
+                <h2>Payment Method</h2>
+                <strong>Method: </strong>
+                {cart.paymentMethod}
+              </li>
 
-            <ListGroup.Item>
-              <h2>Order Items</h2>
-              {cart.cartItems.length === 0 ? (
-                <Message>Your cart is empty</Message>
-              ) : (
-                <ListGroup variant='flush'>
-                  {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={4}>
-                          {item.qty} x ₱{item.price} = ₱{item.qty * item.price}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
+                <h2>Order Items</h2>
+                {cart.cartItems.length === 0 ? (
+                  <Message>Your cart is empty</Message>
+                ) : (
+                  <ul className='tw-bg-white tw-rounded-lg tw-w-96 tw-text-gray-900'>
+                    {cart.cartItems.map((item, index) => (
+                      <li
+                        key={index}
+                        className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
+                        <Row>
+                          <Col md={1}>
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fluid
+                              rounded
+                            />
+                          </Col>
+                          <Col>
+                            <Link to={`/product/${item.product}`}>
+                              {item.name}
+                            </Link>
+                          </Col>
+                          <Col md={4}>
+                            {item.qty} x ₱{item.price} = ₱
+                            {item.qty * item.price}
+                          </Col>
+                        </Row>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            </ul>
+          </div>
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item>
+            <ul className='tw-bg-white tw-rounded-lg tw-w-96 tw-text-gray-900 tw-text-center'>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 <h2>Order Summary</h2>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>₱ {cart.itemsPrice}</Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>₱ {cart.shippingPrice}</Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>₱ {cart.taxPrice}</Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>₱ {cart.totalPrice}</Col>
                 </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
                 {error && <Message variant='danger'>{error}</Message>}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  type='button'
-                  className='btn-block'
-                  disabled={cart.cartItems === 0}
+              </li>
+              <li className='tw-px-6 tw-py-2 tw-border-b tw-border-gray-200 tw-w-full tw-rounded-t-lg'>
+                <AppButton
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}>
                   Place Order
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
+                </AppButton>
+              </li>
+            </ul>
           </Card>
         </Col>
       </Row>

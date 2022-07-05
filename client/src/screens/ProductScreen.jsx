@@ -50,6 +50,7 @@ const ProductScreen = () => {
       alert('Review Submitted!');
       setRating(0);
       setComment('');
+      dispatch(listProductDetails(params.id));
     }
     if (!product._id || product._id !== params.id) {
       dispatch(listProductDetails(params.id));
@@ -112,7 +113,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>₱ {product.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -152,7 +153,6 @@ const ProductScreen = () => {
                   <ListGroup.Item className='tw-text-center'>
                     <AppButton
                       onClick={addToCartHandler}
-                      type='button'
                       disabled={product.countInStock === 0}>
                       Add To Cart
                     </AppButton>
@@ -163,19 +163,23 @@ const ProductScreen = () => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <h2 className='tw-py-6 tw-font-extrabold'>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} color={'teal'} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
-                    <p>{review.comment}</p>
+                    <p className='tw-mb-2'>
+                      {review.createdAt.substring(0, 10)}
+                    </p>
+                    <p>- {review.comment}</p>
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h2 className='tw-mb-5 tw-font-extrabold'>
+                    Write a Customer Review
+                  </h2>
                   {successProductReview && (
                     <Message variant='success'>
                       Review submitted successfully
@@ -201,7 +205,7 @@ const ProductScreen = () => {
                           <option value='5'>5 - Excellent</option>
                         </Form.Control>
                       </Form.Group>
-                      <Form.Group controlId='comment'>
+                      <Form.Group controlId='comment' className='tw-my-4'>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
                           as='textarea'
@@ -211,12 +215,9 @@ const ProductScreen = () => {
                             setComment(e.target.value)
                           }></Form.Control>
                       </Form.Group>
-                      <Button
-                        disabled={loadingProductReview}
-                        type='submit'
-                        variant='primary'>
+                      <AppButton disabled={loadingProductReview} type='submit'>
                         Submit
-                      </Button>
+                      </AppButton>
                     </Form>
                   ) : (
                     <Message>
