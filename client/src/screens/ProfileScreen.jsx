@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Table, Form, Button, Row, Col } from 'react-bootstrap';
+import AppButton from '../components/AppButton';
 import ListButton from '../components/ListButton';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -67,49 +68,53 @@ const ProfileScreen = () => {
         ) : error ? (
           <Message variant='danger'>{error}</Message>
         ) : (
-          <Form onSubmit={submitHandler}>
-            <Form.Group controlId='name'>
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type='name'
+          <form onSubmit={submitHandler}>
+            <div className='tw-text-left'>
+              <label>Name</label>
+              <br />
+              <input
+                type='text'
                 placeholder='Enter name'
                 value={name}
-                onChange={(e) => setName(e.target.value)}></Form.Control>
-            </Form.Group>
+                onChange={(e) => setName(e.target.value)}
+                className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
 
-            <Form.Group controlId='email'>
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
+            <div>
+              <label>Email</label>
+              <br />
+              <input
                 type='email'
                 placeholder='Enter email'
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}></Form.Control>
-            </Form.Group>
+                onChange={(e) => setEmail(e.target.value)}
+                className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
 
-            <Form.Group controlId='password'>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+            <div className='tw-text-left'>
+              <label>Password</label>
+              <br />
+              <input
                 type='password'
                 placeholder='Enter password'
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}></Form.Control>
-            </Form.Group>
+                onChange={(e) => setPassword(e.target.value)}
+                className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
 
-            <Form.Group controlId='confirmPassword'>
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
+            <div className='tw-text-left'>
+              <label>Confirm Password</label>
+              <br />
+              <input
                 type='password'
-                placeholder='Confirm password'
+                placeholder='Confirm Password'
                 value={confirmPassword}
-                onChange={(e) =>
-                  setConfirmPassword(e.target.value)
-                }></Form.Control>
-            </Form.Group>
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
+            </div>
 
-            <Button type='submit' variant='primary'>
-              Update
-            </Button>
-          </Form>
+            <AppButton type='submit'>Update</AppButton>
+          </form>
         )}
       </Col>
       <Col md={9}>
