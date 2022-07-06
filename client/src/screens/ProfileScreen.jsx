@@ -59,7 +59,9 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2 className='tw-pb-6 tw-font-extrabold'>User Profile</h2>
+        <h2 className='tw-pb-6 tw-font-extrabold tw-text-center'>
+          User Profile
+        </h2>
         {message && <Message variant='danger'>{message}</Message>}
         {}
         {success && <Message variant='success'>Profile Updated</Message>}
@@ -68,8 +70,8 @@ const ProfileScreen = () => {
         ) : error ? (
           <Message variant='danger'>{error}</Message>
         ) : (
-          <form onSubmit={submitHandler}>
-            <div className='tw-text-left'>
+          <form onSubmit={submitHandler} className='sm:tw-text-center'>
+            <div>
               <label>Name</label>
               <br />
               <input
@@ -91,7 +93,7 @@ const ProfileScreen = () => {
                 className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
             </div>
 
-            <div className='tw-text-left'>
+            <div>
               <label>Password</label>
               <br />
               <input
@@ -102,7 +104,7 @@ const ProfileScreen = () => {
                 className='tw-w-64 tw-mb-3 tw-px-4 tw-py-2 tw-font-normal tw-text-gray-700 tw-border tw-border-solid tw-border-gray-300 tw-rounded  focus:tw-border-teal-600 focus:tw-outline-none'></input>
             </div>
 
-            <div className='tw-text-left'>
+            <div>
               <label>Confirm Password</label>
               <br />
               <input

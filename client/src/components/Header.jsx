@@ -37,7 +37,15 @@ const Header = () => {
         collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Ashes Stuffs</Navbar.Brand>
+            <Navbar.Brand>
+              <img
+                className='tw-mr-4 -tw-mt-5 tw-w-14 tw-h-16'
+                align='left'
+                src='../images/KuriSmall.png'
+                alt='Kuriball'
+              />
+              Ashes Stuffs
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

@@ -23,10 +23,9 @@ const App = () => {
   return (
     <>
       <Header />
-
       <main className='py-4'>
         <div className='tw-mb-28' />
-        <Container>
+        <div className='tw-px-2'>
           <Routes>
             <Route path='/order/:id' element={<OrderScreen />} />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
@@ -61,7 +60,7 @@ const App = () => {
             />
             <Route path='/' element={<HomeScreen />} />
           </Routes>
-        </Container>
+        </div>
       </main>
       <Footer />
     </>
