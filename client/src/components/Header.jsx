@@ -2,10 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import SearchBox from './SearchBox';
 import { logout } from '../actions/userActions';
-
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
@@ -37,9 +36,9 @@ const Header = () => {
         collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>
+            <Navbar.Brand className='tw-underline tw-underline-offset-8'>
               <img
-                className='tw-mr-4 -tw-mt-5 tw-w-14 tw-h-16'
+                className='tw-mr-2 -tw-mt-4 tw-w-14 tw-h-16'
                 align='left'
                 src='../images/KuriSmall.png'
                 alt='Kuriball'

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
@@ -25,7 +24,7 @@ const App = () => {
       <Header />
       <main className='py-4'>
         <div className='tw-mb-28' />
-        <div className='tw-px-2'>
+        <div className='tw-px-6'>
           <Routes>
             <Route path='/order/:id' element={<OrderScreen />} />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />

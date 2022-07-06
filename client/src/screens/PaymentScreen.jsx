@@ -51,7 +51,8 @@ const PaymentScreen = () => {
 
           <div className='tw-form-check'>
             <input
-              className='tw-form-check-input tw-h-4 tw-w-4 tw-mt-1 tw-mr-2 tw-cursor-pointer'
+              disabled
+              className='tw-form-check-input tw-h-4 tw-w-4 tw-mt-1 tw-mr-2 tw-cursor-not-allowed'
               type='radio'
               name='paymentMethod'
               value='Stripe'
@@ -59,9 +60,9 @@ const PaymentScreen = () => {
               id='Stripe'
             />
             <label
-              className='tw-cursor-pointer tw-form-check-label tw-inline-block tw-text-gray-800'
+              className='tw-cursor-not-allowed tw-form-check-label tw-inline-block tw-text-gray-400'
               for='Stripe'>
-              Stripe
+              Stripe (Will be available soon...)
             </label>
           </div>
         </div>
