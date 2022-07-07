@@ -50,7 +50,7 @@ const ProductCarousel = () => {
             <div>
               <Link to={`/product/${product._id}`}>
                 <img
-                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 tw-justify-self-center'
+                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 tw-justify-self-center sm:tw-ml-0'
                   src={product.image}
                   alt={product.name}
                 />
