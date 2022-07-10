@@ -62,7 +62,7 @@ const LoginScreen = () => {
         <div className='text-center lg:text-left'>
           <button
             type='submit'
-            className='tw-inline-block tw-px-7 tw-py-3 tw-mb-10 tw-bg-green-600 hover:tw-bg-green-500 tw-text-white tw-font-medium tw-text-sm tw-uppercase tw-rounded tw-shadow-md  hover:tw-shadow-lg focus:tw-bg-blue-700 focus:tw-shadow-lg focus:tw-outline-none focus:tw-ring-0 active:tw-bg-blue-800 active:tw-shadow-lg tw-transition tw-duration-150 tw-ease-in-out'>
+            className='tw-inline-block tw-px-7 tw-py-3 tw-mb-10 tw-bg-green-600 hover:tw-bg-green-500 tw-text-white tw-font-medium tw-text-sm tw-uppercase tw-rounded tw-shadow-md'>
             Sign In
           </button>
           <p className='tw-text-sm tw-font-semibold tw-mt-2 tw-pt-1 tw-mb-0'>

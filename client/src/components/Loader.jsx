@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap';
 const Loader = () => {
   return (
     <Spinner
+      className='tw-mt-10'
       animation='grow'
       role='status'
       style={{

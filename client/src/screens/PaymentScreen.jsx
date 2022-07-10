@@ -44,7 +44,7 @@ const PaymentScreen = () => {
             />
             <label
               className='tw-cursor-pointer tw-form-check-label tw-inline-block tw-text-gray-800'
-              for='PayPal'>
+              htmlFor='PayPal'>
               PayPal or Credit Card
             </label>
           </div>
@@ -61,7 +61,7 @@ const PaymentScreen = () => {
             />
             <label
               className='tw-cursor-not-allowed tw-form-check-label tw-inline-block tw-text-gray-400'
-              for='Stripe'>
+              htmlFor='Stripe'>
               Stripe (Will be available soon...)
             </label>
           </div>

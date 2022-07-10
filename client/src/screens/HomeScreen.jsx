@@ -44,7 +44,7 @@ export const HomeScreen = () => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-          <div className='tw-grid tw-grid-cols-4 tw-gap-y-10 tw-gap-x-4 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5'>
+          <div className='tw-grid tw-grid-cols-5 tw-gap-y-10 tw-gap-x-4 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5'>
             {products.map((product) => (
               <Product key={product._id} product={product} />
             ))}

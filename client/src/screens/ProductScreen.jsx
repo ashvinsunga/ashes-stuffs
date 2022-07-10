@@ -102,7 +102,10 @@ const ProductScreen = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>Price: ₱{product.price}</ListGroup.Item>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  <span className='tw-text-teal-700 tw-font-extrabold'>
+                    Description:
+                  </span>{' '}
+                  {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import AppButton from '../components/AppButton';
 import Message from '../components/Message';
@@ -49,7 +49,9 @@ const OrderScreen = () => {
       order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     );
 
+    order.shippingPrice = addDecimals(order.shippingPrice);
     order.taxPrice = addDecimals(order.taxPrice);
+    order.totalPrice = addDecimals(order.totalPrice);
   }
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const OrderScreen = () => {
       // console.log(clientId);
       const script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=PHP`;
       script.async = true;
       script.onload = () => {
         setSdkReady(true);
@@ -220,6 +222,7 @@ const OrderScreen = () => {
                     <Loader />
                   ) : (
                     <PayPalButton
+                      currency={'PHP'}
                       amount={order.totalPrice}
                       onSuccess={successPaymentHandler}
                     />
