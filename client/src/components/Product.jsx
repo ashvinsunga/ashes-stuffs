@@ -15,7 +15,9 @@ const Product = ({ product }) => {
           className='tw-w-full tw-h-full tw-object-center tw-object-cover'
         />
       </div>
-      <h3 className='tw-mt-4 tw-text-sm tw-text-gray-700'>{product.name}</h3>
+      <h3 className='tw-mt-4 tw-text-sm tw-text-gray-700 tw-truncate'>
+        {product.name}
+      </h3>
       <div>
         <Rating value={product.rating} text={`${product.numReviews} reviews`} />
       </div>

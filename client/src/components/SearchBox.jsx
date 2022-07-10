@@ -25,7 +25,7 @@ const SearchBox = ({ navigate }) => {
         className='ms-sm-2 ml-sm-5 tw-h-12'></Form.Control>
       <Button
         type='submit'
-        className='tw-w-28 tw-h-12 tw-ml-4 tw-rounded-md tw-bg-green-600 hover:tw-bg-green-500'>
+        className='tw-w-28 tw-h-12 tw-ml-4 tw-rounded-md tw-bg-green-600 hover:tw-bg-green-500 focus:tw-bg-green-600 focus:tw-ring-0'>
         <strong>GO</strong>
       </Button>
     </Form>
