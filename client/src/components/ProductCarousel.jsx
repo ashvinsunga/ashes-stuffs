@@ -43,14 +43,14 @@ const ProductCarousel = () => {
       modules={[Autoplay, EffectFade, Pagination]}>
       {products.map((product) => (
         <SwiperSlide key={product._id}>
-          <div className='tw-items-center tw-p-4 tw-grid sm:tw-grid-cols-1 md:tw-grid-cols-1 lg:tw-grid-cols-2 xl:tw-grid-cols-2 2xl:tw-grid-cols-2 sm:tw-bg-gradient-to-b tw-from-teal-400 tw-to-white tw-bg-gradient-to-r tw-from-teal-500 tw-to-white'>
+          <div className='tw-items-center tw-p-4 sm:tw-p-0 tw-grid sm:tw-grid-cols-1 md:tw-grid-cols-1 lg:tw-grid-cols-2 xl:tw-grid-cols-2 2xl:tw-grid-cols-2 sm:tw-bg-gradient-to-b tw-from-teal-400 tw-to-white tw-bg-gradient-to-r tw-from-teal-500 tw-to-white'>
             <div className='tw-absolute tw-top-6 tw-place-self-center'>
               <div className='sm:tw-text-xl tw-text-3xl'>TOP PRODUCTS</div>
             </div>
             <div>
               <Link to={`/product/${product._id}`}>
                 <img
-                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 tw-justify-self-center sm:tw-ml-0'
+                  className='tw-h-80 tw-p-5 tw-m-9 tw-rounded-full hover:tw-opacity-75 tw-justify-self-center'
                   src={product.image}
                   alt={product.name}
                 />

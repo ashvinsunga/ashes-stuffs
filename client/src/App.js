@@ -22,9 +22,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className='py-4'>
+      <main className='tw-py-4'>
         <div className='tw-mb-28' />
-        <div className='tw-px-6'>
+        <div className='tw-px-2'>
           <Routes>
             <Route path='/order/:id' element={<OrderScreen />} />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
