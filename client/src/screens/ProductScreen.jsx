@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Form,
-} from 'react-bootstrap';
+import { Row, Col, Image, ListGroup, Card, Form } from 'react-bootstrap';
 import AppButton from '../components/AppButton';
 import Rating from '../components/Rating';
 import Message from '../components/Message';
@@ -47,7 +39,6 @@ const ProductScreen = () => {
 
   useEffect(() => {
     if (successProductReview) {
-      alert('Review Submitted!');
       setRating(0);
       setComment('');
       dispatch(listProductDetails(params.id));
@@ -75,7 +66,7 @@ const ProductScreen = () => {
   return (
     <>
       <Link to='/'>
-        <AppButton>Go Back</AppButton>
+        <AppButton> RETURN TO PRODUCTS </AppButton>
       </Link>
 
       {loading ? (
@@ -184,9 +175,7 @@ const ProductScreen = () => {
                     Write a Customer Review
                   </h2>
                   {successProductReview && (
-                    <Message variant='success'>
-                      Review submitted successfully
-                    </Message>
+                    <Message variant='success'>Review submitted!</Message>
                   )}
                   {loadingProductReview && <Loader />}
                   {errorProductReview && (
